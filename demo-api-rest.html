@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo API</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h1>Consumo de API</h1>
+    <button id="btn-api" class="btn btn-primary">Consultar API</button>
+    <div id="resultado" class="alert alert-info mt-3">Esperando resultado...</div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script>
+    $("#btn-api").on("click", function(){
+      $.get("https://s1uplfovq4.execute-api.us-east-1.amazonaws.com/default/example", function(data){
+        $("#resultado").text(data.mensaje);
+      });
+    });
+  </script>
+</body>
+</html>
